@@ -1,1 +1,1 @@
-# cfp
+# Project documentation
