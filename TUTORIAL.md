@@ -2,7 +2,7 @@ This is a guide for users on how to run the codes we developed, if you would lik
 We divided this tutorial according to the scripts on [GEE](https://code.earthengine.google.com/?accept_repo=users/lorrainetoliveira/cfp-project).
 It is important to state again that the features used will surely differ from place to place. The pool of datasets we used is derived from months of research together with local experts. Some features will likely be used to other contexts such as DEM or distance to natural areas, the interpretation of the features values in relation to deprivation might change. 
 
-** PS1: The words feature and variable are used interchangebly in this tutorial.
+**PS1: The words feature and variable are used interchangebly in this tutorial.
 PS2: This tutorial will soon have a Portuguese version.**
 
 ## 1a_prep_AGSNbuffer
