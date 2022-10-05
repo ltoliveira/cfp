@@ -74,4 +74,10 @@ And remove or include the number of graphs according to the number of clusters. 
 Finally, we used spatial filters for a better visualization of the output map. The user can change the kernel radius (line 265) and check the influence on the final result by visualizing it on the map.
 ![image](https://user-images.githubusercontent.com/101252763/194079649-8bb5df27-6e03-4372-aaa6-215f7206e9ac.png)
 
+The screenshot below shows the final map result and the first cluster map.
+![image](https://user-images.githubusercontent.com/101252763/194081061-8f86305a-7e4c-40b4-9a21-3e4070865316.png)
+Scrooling down the console tab, the other histograms can be seen and by clicking on the gray arrow on the right corner of the graph, it opens in another tab with download options in different formats.
+![image](https://user-images.githubusercontent.com/101252763/194081642-1c409717-2e03-4ce8-b2b3-3970e6f94b2d.png)
+
 ## 5_UserInterface
+The user interface is the source script of our [app](https://pedrassoli-julio.users.earthengine.app/view/ibm-nd-app-beta-v2), that compiles this batch of 10 scripts.  
