@@ -7,7 +7,8 @@ as part of the CFP project funded by Notre Dame-IBM Tech Ethics Lab
 and its aim is twofold: archive for metadata documentation and tutorial of how to use the [batch of codes](https://code.earthengine.google.com/?accept_repo=users/lorrainetoliveira/cfp-project) developed by our group.  
 
 ## Introduction to the project
-We scaled the unsupervised machine-learning model developed by Ms. Oliveira (https://essay.utwente.nl/88986/)
+In our proposal *"Solving Ethical Challenges in the Design of Open-Source Environments: Scaling Urban Mapping Models in View of the Locus Charter"*, 
+we scaled the unsupervised machine-learning model developed by Ms. Oliveira (https://essay.utwente.nl/88986/)
 to classify deprived as areas in the city of São Paulo to the Metropolitan Area of São Paulo using solely open data sources
 working on the automation level of the script and dealing with scalability challenges. 
 
