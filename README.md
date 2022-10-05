@@ -45,7 +45,7 @@ This table shows the input data used for the Metropolitan Area of São Paulo. Th
 - 1c_prep_deadends: This code was created to locate and extract the dead end streets (in specific the dangling points). This process is not automated in any GIS software which makes this a novel approach. The output of this code will be used as input to derive the density of dead end streets in the ROI (Kernel Density Estimation analysis).
 - 2a_input_RSdata: This code extracts the data from Remote Sensing based datasets.
 - 2b_input_GLCM: This code extracts texture metrics (Gray-Level Co-occurrence Matrix -GLCM). It measures the spatial relationship of the pixels by calculating statistics derived from the pixels brightness. 
-- 2c_input_KDE: This code calculates the feature density of dead end streets as the second step of '1c_prep_deadends'.
+- 2c_input_KDE: This code calculates the Kernel Density Estimation to derive the feature *Density of dead end streets* as the second step of '1c_prep_deadends'.
 - 2d_input_MSI: This script calculates the Mean Shape Index, a landscape metric that quantifies the complexity of the urban fabric. 
 - 2e_input_GISdata: This code provide an accessbility analysis of the study area by calculating the Euclidean distance to features (shapefiles from HOTOSM).
 - 3_input_Inspection: This code inspects the model input before feeding into the model, looking into possible inconsistencies (noise, data patterns, masked values etc)
