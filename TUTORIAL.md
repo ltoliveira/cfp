@@ -4,8 +4,9 @@ It is important to state again that the features used will surely differ from pl
 
 ## 1a_prep_AGSNbuffer
 This code is twofold. First, it loads the two main base layers of the model the layer with the extent of the study area and the layer with the extent of the local deprived settlements. Second, it excludes non-deprived pixels from the training sample, that might be noise source, by applying a buffer function. 
-Here the user need to upload the local layers and determine the unit of analysis (grid), because the buffer would need to be half of such value to exclude pixels only partially inside the deprived settlements extent. We used 20x20m grid, therefore our buffer is 10m. 
-The code will export the resulting layer (after buffer) as an asset.
+Here the user need to upload the local layers and determine the unit of analysis (grid), because the buffer would need to be half of such value to exclude pixels only partially inside the deprived settlements extent. We used 20x20m grid, therefore our buffer is 10m. The code will export the resulting layer (after buffer) as an asset.
+
+**Attention: please check every time 'scale' or 'SCALE' appears in any of the following scripts, inside a function or for export purposes. We used 20m but the user needs to adapt it accordingly.**
 
 ## 1b_prep_OSMmerge 
 We provided this code to process the OSM datasets that are download outside the GEE catalog. As the Region of Interest (ROI) is quite large, the HOTOSM platform required four tiles to encompass the entire study area' extent. This script merged the tiles per feature type (points, lines and polygons) and exported them as assets as shown in the screenshot. If the ROI is larger, requiring more than than four tiles, another variables would need to be added. For instance, following our code *'var osmline3 = OSML5.merge(OSML6);'*. If the ROI of the user has only one tile, this script can be skipped. 
