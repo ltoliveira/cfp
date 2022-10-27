@@ -33,7 +33,7 @@ The reposity contains all scripts in English and in Portuguese.
 4. Data processing: Here we do not only extracted the input features for the model in a single workflow - sometimes having to create the extraction function that did not existed - , but we also investigate data inconsistencies (completeneness, biases, etc). 
 5. Modelling: K-means algorithm [wekaKMeans](https://developers.google.com/earth-engine/apidocs/ee-clusterer-wekakmeans) was used and optimized multiple times with multiple strategies such as inspecting each [input feature](https://code.earthengine.google.com/c5737a03110fb8bb66a88da589bb3327) and including each one sistematically , [removing boundary pixels](https://www.sciencedirect.com/science/article/abs/pii/S0143622812001592?via%3Dihub) from the training sample for less noise , detecting outliers [z-score](https://datascience.eu/mathematics-statistics/what-is-a-z-score/), normalization process and post classification filters.
 6. Validation: Model was validated with local specialists from academia, NGO and governmental institutions in a three hour workshop.
-8. Documentation: Besides the [GEE repo](https://code.earthengine.google.com/?accept_repo=users/lorrainetoliveira/cfp-project), this repository is also used for documentation and will be soon translated to Portuguese, so that it can also serve as a tutorial guide for users in Brazilian municipalities.
+8. Documentation: Besides the [GEE repo](https://code.earthengine.google.com/?accept_repo=users/lorrainetoliveira/cfp-project), this repository is also used for documentation both in English and Portuguese, so that it can also serve as a tutorial guide for users in Brazilian municipalities.
 
 
 ### Model Input 
