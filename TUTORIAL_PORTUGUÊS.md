@@ -65,23 +65,24 @@ Este script calcula o z-score, medindo a distância entre o valor do pixel e a m
 ![image](https://user-images.githubusercontent.com/101252763/198289015-be2596e5-76b0-4bf1-9c84-6d7ed9fbedba.png)
 
 ## 4_model_Filtro
-This code implements the k-means algorithm, visualize the results and applies a post classification filter to deal with the noise derived from the own classification process and to deal with the voids derived from the z-score calculation.
-The first thing the user can "play with" is to removing and including new variables. By adding // to the line code the algorithm do not read that variable. The user also need to change (if there are new variables or variables removed) from the image collection. 
-![image](https://user-images.githubusercontent.com/101252763/194076455-19454e7c-bd12-4dcc-a20d-87b452756dfb.png)
+Este código implementa o algoritmo k-médias, visualize os resultados (com mapa e histogramas) e aplica filtros pós classificatórios a fim de lidar com possíveis ruídos derivados do próprios processo de clusterização e do cálculo do z-score. 
+O usuário pode testar incluir e remover variáveis e observar os resultados. Se adicionar // a linha do código, o algoritmo não lerá a variável. Caso adicione ou retire alguma variável, o usuário precisa modificar na coleção de imagens que é o dado principal de entrada do model. 
+![image](https://user-images.githubusercontent.com/101252763/198291576-396edcfd-6cb1-46fa-bc2a-1b2dd3dc4420.png)
 
-Under the training part, the user can change the number of clusters. This is a very important step that has no proper decision methods besides trial and error. Other programming languages offer tools for this e.g.,Python: elbow method, but we could not apply into this javascript yet. 
-![image](https://user-images.githubusercontent.com/101252763/194077592-5941794a-c5e4-4b0d-b78d-999e83e151be.png)
+Na seção de treinamento do modelo, o usuário pode modificar o número de clusters e também testar o efeito no resultado com a visualização no mapa e histogramas. Por ser modelo não supervisionado, além do conhecimento local, é preciso usar método qualitativo para tomada de decisão. Outras linguagens de programação oferecem ferramentas para cálculo quantitativo, por exemplo em Python pode-se aplicar o elbow method, mas em Java não é possível. Estamos trabalhando nisso. 
+![image](https://user-images.githubusercontent.com/101252763/198292229-c2772081-55b2-4a32-9631-6626bfb857e0.png)
 
-To visualize the graphs, the user will need to remove or include the variables name and rename the bands accordingly. 
-![image](https://user-images.githubusercontent.com/101252763/194078171-dda79b2f-6553-4305-ad95-83f87baa95f7.png)
+Para visualizar os gráficos o usuário precisa remover ou incluir o nome das variáveis usadas e renomear as bandas de acordo.
+![image](https://user-images.githubusercontent.com/101252763/198292492-df56a914-6f07-4903-913a-2b5e707b0e23.png)
 
-And remove or include the number of graphs according to the number of clusters. Besides changing on line 172-175 of the code, the user should remove all the lines regarding the creation of the histograms that are not selected. For instance, we used 4 four clusters, but if there are only 2 clusters for a certain context, the histograms 3 and 4 must be erased. The user can also select the variable they would like to see on the graph, even only one at a time.
-![image](https://user-images.githubusercontent.com/101252763/194078332-657da266-5ee5-4820-95af-34281e41a05a.png)
+E remover ou incluir o número de gráficos de acordo com o número de clusters definido (linhas 170-173 do código). Por exemplo, se só três clusters forem selecionados para certo contextos, a linha do histograma 4 deve ser apagado. O usuário também pode selecionar a(s) variável(is) que se deseja ver no gráfico, mesmo que seja uma de cada vez. 
+![image](https://user-images.githubusercontent.com/101252763/198293268-2deb202e-5194-4c83-bcf7-c616d7db7a8f.png)
 
-Finally, we used spatial filters for a better visualization of the output map. The user can change the kernel radius (line 265) and check the influence on the final result by visualizing it on the map.
-![image](https://user-images.githubusercontent.com/101252763/194079649-8bb5df27-6e03-4372-aaa6-215f7206e9ac.png)
+Por fim, usamos filtros espaciais para melhorar a visualização do resultado final. O usuário pode mudar o raio do kernel (linha 264) e checar a influência no resultado final visualizando no mapa.
+![image](https://user-images.githubusercontent.com/101252763/198294180-dffef6e6-9558-40b4-b228-712a43334107.png)
 
-The screenshot below shows the final map result and the first cluster map.
+Abaixo, pode-se ver uma captura de tela que mostra um zoom do resultado final e o histograma do cluster número 1 na aba console. 
 ![image](https://user-images.githubusercontent.com/101252763/194081061-8f86305a-7e4c-40b4-9a21-3e4070865316.png)
-Scrooling down the console tab, the other histograms can be seen and by clicking on the gray arrow on the right corner of the graph, it opens in another tab with download options in different formats.
+
+Os demais histogramas estão logo abaixo e eles podem ser vistos amplamente em uma outra janela se clicar na pequena seta cinza no canto direito do gráfico. O GEE oferece vários formatos de download dos gráficos o que é bastante conveniente também. 
 ![image](https://user-images.githubusercontent.com/101252763/194081642-1c409717-2e03-4ce8-b2b3-3970e6f94b2d.png)
