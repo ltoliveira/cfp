@@ -4,8 +4,6 @@ It is important to state again that the features used will surely differ from pl
 
 **PS1: The words feature and variable are used interchangebly in this tutorial.**
 
-**PS2: This tutorial will soon have a Portuguese version.**
-
 ## 1a_prep_AGSNbuffer
 This code is twofold. First, it loads the two main base layers of the model the layer with the extent of the study area and the layer with the extent of the local deprived settlements. Second, it excludes non-deprived pixels from the training sample, that might be noise source, by applying a buffer function. 
 Here the user need to upload the local layers and determine the scale of analysis (*pixel resolution*), because the buffer would need to be half of such value to exclude pixels only partially inside the deprived settlements extent. We used 20x20m grid, therefore our buffer is 10m. The code will export the resulting layer (after buffer) as an asset.
