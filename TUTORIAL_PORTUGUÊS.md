@@ -31,23 +31,23 @@ Isto vai depender da complexidade e da completude da malha viária OSM da área 
 O script exporta o resultado da camada vetorial (pontos) que vai ser usada no script '2c_input_KDE' para a Estimativa de Densidade Kernel (KDE) dos pontos sem saída.
 
 ## 2a_input_RSdados
-Aqui extraímos os atributos de dados de sensoriamento remote, respectivamente Índice de Vegetação por Diferença Normalizada (NDVI), Modelo de Elevação Digital (DEM), Declive, Contagem populacional, Luzes noturnas (VIIRS-DNB).
+Aqui o usuário pode extrair atributos de dados de sensoriamento remote, respectivamente Índice de Vegetação por Diferença Normalizada (NDVI), Modelo de Elevação Digital (DEM), Declive, Contagem populacional, Luzes noturnas (VIIRS-DNB).
 O usuário possivelmente precisará ajustar a data de aquisição das imagens de satélite (*FilterDate'*) de acordo com sua necessidade. Como a camada AGSN foi produzida em 2019, mantivemos a consistência temporal.
-Here the user will need to change the acquisition date  we tried to maintain temporal consistency. 
-O usuário também precisa ajustar o valor limiar da propriedade de percentual de nebulosidade do pixel (*'CLOUDY_PIXEL_PERCENTAGE'*), dependendo da disponibilidade de imagens.
 ![image](https://user-images.githubusercontent.com/101252763/198280244-d5d1dff6-6a6f-4cba-97d9-191ea8742b1a.png)
+
 A partir deste código, todos os resultados são exportados e usados como dados de entrada do modelo. 
 
 ## 2b_input_GLCM
-This code extracts the five texture metrics (Gray-Level Co-occurrence Matrix - GLCM) used in this study. GEE already provides a function to calculate such metrics.  
-Here the user might need to adapt the radius of the kernel used. We used 5 (in pixels, which means 100m), that we found reasonable considering the spatial structure of the Metropolitan Area of São Paulo. Depending on the region, a smaller kernel might be more efficient to show smaller urban blocks, or larger ones in a more sprawled context. 
-![image](https://user-images.githubusercontent.com/101252763/194064200-05770fa7-86ae-4096-9c68-5b6ac74f752d.png)
+Este código extrai cinco métricas de textura derivadas da Matriz de co-ocorrência de níveis de cinza (GLCM, em inglês). O GEE já possui uma função que calcula essas métricas, por isso o código só faz o processament da banda pancromática do Landsat e roda a função. O usuário só precisa, se necessário, ajustar o raio do kernel.
+Aqui, usamos 5 (em pixels, portanto 100m), considerando a estrutura espacial da região metropolitana de São Paulo. Dependendo da área de estudo, um valor menor de raio seja mais eficiente para mostrar o número de quadras urbanas, ou um número maior para um contexto de crescimento espraiado. O usuário precisa tomar essa decisão.
+![image](https://user-images.githubusercontent.com/101252763/198281734-59ebb130-fc1a-411c-9f99-0a65bd4a899d.png)
 
 ## 2c_input_KDE
-This script calculates a heatmap from the dangling points extracted previously under *'1c_prep_deadends'*. Similar as the previous script, here the user might need to adapt the kernel radius. Visualizing the results with the *'Map.addLayer'* function always helps with this decision. 
+Este script calcula a densidade dos pontos finais das ruas sem saída extraídos previamente no script *'1c_prep_deadends'*. O usuário só precisa ajustar o raio do kernel e para isso, pode-se utilizar dos resultados visualizos no mapa.
 
 ## 2d_input_MSI
-This is a novel approach just as the extraction of dead ends street points. From the building footprint layer (WSF 2019) we calculated the Mean Shape Index formula for each pixel and combined the resulting values per settlement. 
+Este código traz uma abordagem inovadora para calcular o índice de Forma (MSI, em inglês), uma conhecida métrica da paisagem. 
+From the building footprint layer (WSF 2019) we calculated the Mean Shape Index formula for each pixel and combined the resulting values per settlement. 
 The WSF datasets are also acquired by tiles and you might need to download more than we needed for our case study. So another variable should be imported to the user's assets, loaded into the code as a new variable and included in the mosaic. 
 ![image](https://user-images.githubusercontent.com/101252763/194071687-626b5d5c-7616-4ae7-a2e0-076c266cfb7b.png)
 Besides that, the user will need to adapt the scale and the radius of the reducers of the applied filters (we used them for noise removal). Here we used 2 fos max reducers and 4 for min reducers. Use the displayed map to identify the most suitable radius, making sure to check how the filter impacts areas with small and large settlements.
