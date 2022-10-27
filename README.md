@@ -20,6 +20,7 @@ working on the automation level of the script and dealing with scalability chall
 
 ## Accessing the platform 
 We are using the GEE platform to manage and analyse the data, because it has a great open catalog, speedy processing, no environmental maintenance or preparation required and stream all laters and outputs to the local computer for visualization purposes. With the link below you can access the batch of codes and the input data repository: https://code.earthengine.google.com/?accept_repo=users/lorrainetoliveira/cfp-project
+The reposity contains all scripts in English and in Portuguese. 
 
 **PS:** If you don't have yet, please remember to [sign up](https://signup.earthengine.google.com/) for an Earth Engine account.
 
