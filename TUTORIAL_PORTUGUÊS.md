@@ -46,27 +46,23 @@ Aqui, usamos 5 (em pixels, portanto 100m), considerando a estrutura espacial da 
 Este script calcula a densidade dos pontos finais das ruas sem saída extraídos previamente no script *'1c_prep_deadends'*. O usuário só precisa ajustar o raio do kernel e para isso, pode-se utilizar dos resultados visualizos no mapa.
 
 ## 2d_input_MSI
-Este código traz uma abordagem inovadora para calcular o índice de Forma (MSI, em inglês), uma conhecida métrica da paisagem. 
-From the building footprint layer (WSF 2019) we calculated the Mean Shape Index formula for each pixel and combined the resulting values per settlement. 
-The WSF datasets are also acquired by tiles and you might need to download more than we needed for our case study. So another variable should be imported to the user's assets, loaded into the code as a new variable and included in the mosaic. 
-![image](https://user-images.githubusercontent.com/101252763/194071687-626b5d5c-7616-4ae7-a2e0-076c266cfb7b.png)
-Besides that, the user will need to adapt the scale and the radius of the reducers of the applied filters (we used them for noise removal). Here we used 2 fos max reducers and 4 for min reducers. Use the displayed map to identify the most suitable radius, making sure to check how the filter impacts areas with small and large settlements.
-![image](https://user-images.githubusercontent.com/101252763/194072106-faf2ab15-0f48-4dd1-b5a3-957089ac0fbe.png)
+Este código traz uma abordagem inovadora para calcular o índice de Forma (MSI, em inglês), uma conhecida métrica da paisagem. Da camada de mancha urbana global (WSF, em inglês, World Settlement Footprint) de 2019, calculamos o MSI para cada pixel e combinamos o valor por unidade setorial do AGSN. 
+O dado do WSF também precisou ser adquirido em lotes, dois no caso. O usuário pode precisar de mais. Se sim, após o download e importação como asset na conta GEE, é preciso carregar como uma nova variável no código e incluí-la(s) na função do 'mosaic'.
+![image](https://user-images.githubusercontent.com/101252763/198286258-a4b69ba2-6602-4630-8af5-11ed6e6b4a63.png)
+
+Além disso, o usuário precisa ajustar a escala e o raio dos 'reducers' de cada filtro. Usamos os filtros para reduzir possíveis ruídos, mas o usuário precisa checar o impacto dos filtros em assentamentos pequenos ou muito grandes. Use a visualização no mapa para identificar o raio mais adqueado.
+![image](https://user-images.githubusercontent.com/101252763/198286797-d77121bb-9c9d-41ec-aff6-b9c2ae87c1e5.png)
 
 ## 2e_input_GISdados
-This code calculates the Euclidean distance to features (street network, water bodies, natural areas and urban facilities). Nothing must be added besides the scale of analysis after importing the OSM merged layers (line, points and polygons) to the script. 
-This code can be adapted to include other features such as distance to industrial facilities, sewage plants or water wells. This depends on the context and the availability (and completeness) of the OSM data.
+Este código calcula a distância euclideana entre atributos vetoriais de dados OSM como rede viária, corpos hídricos, áreas vegetadas, unidades de saúde, etc. Após a importação dos dados OSM, nada precisa ser ajustado além da escala de análise (no código 20m). O código pode ser adaptado para incluir outros atributos, como distânia a áreas industriais ou redes de esgoto por exemplo. Isso dependerá da disponibilidade (e completude) do dado e do contexto estudado. 
 
 ## 3_input_Inspeção
-This code is basically to visualize all input data, inspecting source of inconsistencies or any weird patterns. If other input features are added, the user will need to look into standard visualization parameters for such dataset. 
-![image](https://user-images.githubusercontent.com/101252763/194074306-aa9ad661-9bbd-4597-bd46-705c69721247.png)
+Este código visualize todos os dados de entrada (variáveis/atributos) preparados para o modelo. Aqui, o usuário deve inspecionar possíveis fontes de inconsistências ou padrões estranhos. Se algum dado for adicionado, o usuário precisa incluir o parâmetro de visualização necessário.
+![image](https://user-images.githubusercontent.com/101252763/198287743-7997dbe7-1a99-47d6-a14f-4df54b882baa.png)
 
 ## 3_input_Zscore 
-This script calculates the z-score, measuring the distance between a data point and the mean using standard deviations. It helps finding and removing atypical values that can disturb the model performance. 
-We created a manual and an automated version. In the manual version, the user will need to choose the variable on the top of the code to select the input feature, and on the end of the code for proper visualizing and exporting. 
-![image](https://user-images.githubusercontent.com/101252763/194075380-180bdb3e-151c-4a71-83bf-e12a3b18be4f.png)
-The user also need to select the z-score threshold. The standard rule is -3 < z < 3. 
-![image](https://user-images.githubusercontent.com/101252763/194075562-53d7d920-3007-4732-b1a5-e0340a0595a3.png)
+Este script calcula o z-score, medindo a distância entre o valor do pixel e a média de todos os pixels usando desvio padrão. Isto ajuda a encontrar e remover valores atípicos que podem atrapalhar a performance do modelo. Esta é a versão menos automatizada onde o usuário precisa escolher a variável (linha 45 do código) e  limite a regra do z-score. O padrão usado é -3 < z < 3, aqui usamos -3 < z < 4. O usuário pode definir isso testando diferentes regras e visualizando no histograma (aba console). 
+![image](https://user-images.githubusercontent.com/101252763/198289015-be2596e5-76b0-4bf1-9c84-6d7ed9fbedba.png)
 
 ## 4_model_Filtro
 This code implements the k-means algorithm, visualize the results and applies a post classification filter to deal with the noise derived from the own classification process and to deal with the voids derived from the z-score calculation.
