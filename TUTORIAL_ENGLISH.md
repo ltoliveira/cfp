@@ -34,7 +34,7 @@ Here the user might need to adapt the radius of the kernel used. We used 5 (in p
 This script calculates a heatmap from the dangling points extracted previously under *'1c_prep_deadends'*. Similar as the previous script, here the user might need to adapt the kernel radius. Visualizing the results with the *'Map.addLayer'* function always helps with this decision. 
 
 ## 2d_input_MSI
-This is a novel approach just as the extraction of dead ends street points. From the building footprint layer (WSF 2019) we calculated the Mean Shape Index formula for each pixel and combined the resulting values per settlement. 
+From the building footprint layer (WSF 2019) we calculated the Mean Shape Index formula for each pixel and combined the resulting values per settlement. 
 The WSF datasets are also acquired by tiles and you might need to download more than we needed for our case study. So another variable should be imported to the user's assets, loaded into the code as a new variable and included in the mosaic. 
 ![image](https://user-images.githubusercontent.com/101252763/194071687-626b5d5c-7616-4ae7-a2e0-076c266cfb7b.png)
 Besides that, the user will need to adapt the scale and the radius of the reducers of the applied filters (we used them for noise removal). Here we used 2 fos max reducers and 4 for min reducers. Use the displayed map to identify the most suitable radius, making sure to check how the filter impacts areas with small and large settlements.
