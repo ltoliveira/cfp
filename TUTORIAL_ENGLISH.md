@@ -66,8 +66,8 @@ Under the training part, the user can change the number of clusters. This is a v
 To visualize the graphs, the user will need to remove or include the variables name and rename the bands accordingly. 
 ![image](https://user-images.githubusercontent.com/101252763/194078171-dda79b2f-6553-4305-ad95-83f87baa95f7.png)
 
-And remove or include the number of graphs according to the number of clusters. Besides changing on line 170-174 of the code, the user should remove all the lines regarding the creation of the histograms that are not selected. For instance, we used 4 four clusters, but if there are only 2 clusters for a certain context, the histograms 3 and 4 must be erased. The user can also select the variable they would like to see on the graph, even only one at a time.
-![image](https://user-images.githubusercontent.com/101252763/194078332-657da266-5ee5-4820-95af-34281e41a05a.png)
+And remove or include the number of graphs according to the number of clusters. Besides changing on line 172-175 of the code, the user should remove all the lines regarding the creation of the histograms that are not selected. For instance, we used 4 four clusters, but if there are only 2 clusters for a certain context, the histograms 3 and 4 must be erased. The user can also select the variable they would like to see on the graph, even only one at a time.
+![image](https://user-images.githubusercontent.com/101252763/198293658-26341768-2d89-4729-a996-7778b5291012.png)
 
 Finally, we used spatial filters for a better visualization of the output map. The user can change the kernel radius (line 265) and check the influence on the final result by visualizing it on the map.
 ![image](https://user-images.githubusercontent.com/101252763/194079649-8bb5df27-6e03-4372-aaa6-215f7206e9ac.png)
